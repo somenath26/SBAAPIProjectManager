@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SBAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Parent_Task_New">
+          <Key>
+            <PropertyRef Name="Parent_Id" />
+          </Key>
+          <Property Name="Parent_Id" Type="int" Nullable="false" />
+          <Property Name="Parent_Task" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Project_new">
+          <Key>
+            <PropertyRef Name="Project_id" />
+          </Key>
+          <Property Name="Project_id" Type="int" Nullable="false" />
+          <Property Name="Project_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Start_Date" Type="date" />
+          <Property Name="End_Date" Type="date" />
+          <Property Name="Priority" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="User_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Task_New">
+          <Key>
+            <PropertyRef Name="Task_id" />
+          </Key>
+          <Property Name="Task_id" Type="int" Nullable="false" />
+          <Property Name="Parent_id" Type="int" Nullable="false" />
+          <Property Name="Project_id" Type="int" Nullable="false" />
+          <Property Name="Task_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Start_Date" Type="date" />
+          <Property Name="End_Date" Type="date" />
+          <Property Name="Priority" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="User_id" Type="int" />
+        </EntityType>
+        <EntityType Name="User_New">
+          <Key>
+            <PropertyRef Name="User_id" />
+          </Key>
+          <Property Name="User_id" Type="int" Nullable="false" />
+          <Property Name="First_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Last_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Employee_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="SBAModelStoreContainer">
+          <EntitySet Name="Parent_Task_New" EntityType="Self.Parent_Task_New" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Project_new" EntityType="Self.Project_new" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Task_New" EntityType="Self.Task_New" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User_New" EntityType="Self.User_New" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SBAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Parent_Task_New">
+          <Key>
+            <PropertyRef Name="Parent_Id" />
+          </Key>
+          <Property Name="Parent_Id" Type="Int32" Nullable="false" />
+          <Property Name="Parent_Task" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Project_new">
+          <Key>
+            <PropertyRef Name="Project_id" />
+          </Key>
+          <Property Name="Project_id" Type="Int32" Nullable="false" />
+          <Property Name="Project_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Start_Date" Type="DateTime" Precision="0" />
+          <Property Name="End_Date" Type="DateTime" Precision="0" />
+          <Property Name="Priority" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="User_id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Task_New">
+          <Key>
+            <PropertyRef Name="Task_id" />
+          </Key>
+          <Property Name="Task_id" Type="Int32" Nullable="false" />
+          <Property Name="Parent_id" Type="Int32" Nullable="false" />
+          <Property Name="Project_id" Type="Int32" Nullable="false" />
+          <Property Name="Task_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Start_Date" Type="DateTime" Precision="0" />
+          <Property Name="End_Date" Type="DateTime" Precision="0" />
+          <Property Name="Priority" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="User_id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="User_New">
+          <Key>
+            <PropertyRef Name="User_id" />
+          </Key>
+          <Property Name="User_id" Type="Int32" Nullable="false" />
+          <Property Name="First_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Employee_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="SBAEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Parent_Task_New" EntityType="Self.Parent_Task_New" />
+          <EntitySet Name="Project_new" EntityType="Self.Project_new" />
+          <EntitySet Name="Task_New" EntityType="Self.Task_New" />
+          <EntitySet Name="User_New" EntityType="Self.User_New" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SBAModelStoreContainer" CdmEntityContainer="SBAEntities">
+          <EntitySetMapping Name="Parent_Task_New">
+            <EntityTypeMapping TypeName="SBAModel.Parent_Task_New">
+              <MappingFragment StoreEntitySet="Parent_Task_New">
+                <ScalarProperty Name="Parent_Id" ColumnName="Parent_Id" />
+                <ScalarProperty Name="Parent_Task" ColumnName="Parent_Task" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Project_new">
+            <EntityTypeMapping TypeName="SBAModel.Project_new">
+              <MappingFragment StoreEntitySet="Project_new">
+                <ScalarProperty Name="Project_id" ColumnName="Project_id" />
+                <ScalarProperty Name="Project_Name" ColumnName="Project_Name" />
+                <ScalarProperty Name="Start_Date" ColumnName="Start_Date" />
+                <ScalarProperty Name="End_Date" ColumnName="End_Date" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="User_id" ColumnName="User_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Task_New">
+            <EntityTypeMapping TypeName="SBAModel.Task_New">
+              <MappingFragment StoreEntitySet="Task_New">
+                <ScalarProperty Name="Task_id" ColumnName="Task_id" />
+                <ScalarProperty Name="Parent_id" ColumnName="Parent_id" />
+                <ScalarProperty Name="Project_id" ColumnName="Project_id" />
+                <ScalarProperty Name="Task_Name" ColumnName="Task_Name" />
+                <ScalarProperty Name="Start_Date" ColumnName="Start_Date" />
+                <ScalarProperty Name="End_Date" ColumnName="End_Date" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="User_id" ColumnName="User_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_New">
+            <EntityTypeMapping TypeName="SBAModel.User_New">
+              <MappingFragment StoreEntitySet="User_New">
+                <ScalarProperty Name="User_id" ColumnName="User_id" />
+                <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+                <ScalarProperty Name="Last_name" ColumnName="Last_name" />
+                <ScalarProperty Name="Employee_id" ColumnName="Employee_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
